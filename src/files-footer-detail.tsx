@@ -8,7 +8,7 @@ import { Popover } from "@patternfly/react-core/dist/esm/components/Popover";
 import { Text } from "@patternfly/react-core/dist/esm/components/Text";
 import { Tooltip } from "@patternfly/react-core/dist/esm/components/Tooltip";
 
-import cockpit, { file } from "cockpit";
+import cockpit from "cockpit";
 import type { FileInfo } from "cockpit/fsinfo.ts";
 import * as timeformat from "timeformat";
 
@@ -117,13 +117,13 @@ export const FilesFooterDetail = ({
     return (
         <div className="files-footer-info">
             {fileInfoText}
-            {userGroup}
             {selectedFile.mtime &&
             <Tooltip content={timeformat.dateTimeSeconds(selectedFile.mtime * 1000)}>
                 <Text className="files-footer-mtime">
                     {timeformat.distanceToNow(selectedFile.mtime * 1000)}
                 </Text>
             </Tooltip>}
+            {userGroup}
             {permsPopover}
         </div>
     );
@@ -162,7 +162,7 @@ const UserGroupPopover = ({ file }: { file: FileInfo }) => (
             isInline
             component="pre"
         >
-            {file.user}:{file.group}
+            { (file.user === file.group) ? file.user : `${file.user}:${file.group}` }
         </Button>
     </Popover>
 );
