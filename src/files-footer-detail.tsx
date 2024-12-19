@@ -140,7 +140,7 @@ const UserGroupPopover = ({ file }: { file: FileInfo }) => (
             >
                 <DescriptionListGroup key="user">
                     <DescriptionListTerm>
-                        User
+                        {_("User")}
                     </DescriptionListTerm>
                     <DescriptionListDescription>
                         {file.user}
@@ -148,7 +148,7 @@ const UserGroupPopover = ({ file }: { file: FileInfo }) => (
                 </DescriptionListGroup>
                 <DescriptionListGroup key="group">
                     <DescriptionListTerm>
-                        Group
+                        {_("Group")}
                     </DescriptionListTerm>
                     <DescriptionListDescription>
                         {file.group}
